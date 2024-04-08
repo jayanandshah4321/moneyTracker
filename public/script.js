@@ -91,4 +91,11 @@ function addEntryToTable(entry) {
     infoCell.textContent = entry.info;
     dateCell.textContent = entry.date;
     deleteCell.appendChild(deleteBtn);
+
+    if (entry.category === 'Income') {
+        totalAmount += entry.amount;
+    } else {
+        totalAmount -= entry.amount;
+    }
+    totalAmountCell.textContent = totalAmount;
 }
