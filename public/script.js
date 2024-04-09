@@ -1,3 +1,4 @@
+
 let expenses = [];
 let totalAmount = 0;
 const categorySelect = document.getElementById('category_select');
@@ -83,19 +84,17 @@ function addEntryToTable(entry) {
         expenseTableBody.removeChild(newRow);
     });
 
-    console.log(entry); // Check if the entry object is correctly formed
-    console.log(newRow); // Check if newRow is correctly formed
-
-    categoryCell.textContent = entry.category;
-    amountCell.textContent = entry.amount;
-    infoCell.textContent = entry.info;
-    dateCell.textContent = entry.date;
-    deleteCell.appendChild(deleteBtn);
-
+    // Update total amount
     if (entry.category === 'Income') {
         totalAmount += entry.amount;
     } else {
         totalAmount -= entry.amount;
     }
     totalAmountCell.textContent = totalAmount;
+
+    categoryCell.textContent = entry.category;
+    amountCell.textContent = entry.amount;
+    infoCell.textContent = entry.info;
+    dateCell.textContent = entry.date;
+    deleteCell.appendChild(deleteBtn);
 }
